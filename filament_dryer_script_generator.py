@@ -81,6 +81,7 @@ def create_script(
         handle (BytesIO): The output stream handle.
         num_bytes (int): Number of bytes written
     """
+    print(encoding)
     if not use_chamber and not use_bed:
         raise Exception("Must enable either bed or chamber.")
 
