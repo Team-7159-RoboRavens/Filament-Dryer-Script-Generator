@@ -3,6 +3,7 @@ include LICENSE
 include README.rst
 
 recursive-include tests *
+recursive-include evoCode *
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
 
