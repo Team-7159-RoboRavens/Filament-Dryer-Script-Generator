@@ -61,7 +61,7 @@ def create_script(
     encoding="utf-8",
     newline="\n",
     cmds=DEFAULT_COMMANDS,
-    evo=True
+    evo=False
 ):
     """
     Writes a gcode script to the provided BytesIO-like stream.
