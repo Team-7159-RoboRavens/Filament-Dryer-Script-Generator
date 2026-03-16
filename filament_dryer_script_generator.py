@@ -58,10 +58,10 @@ def create_script(
     temperature,
     use_bed=False,
     use_chamber=False,
+    evo=False,
     encoding="utf-8",
     newline="\n",
-    cmds=DEFAULT_COMMANDS,
-    evo=False
+    cmds=DEFAULT_COMMANDS
 ):
     """
     Writes a gcode script to the provided BytesIO-like stream.
@@ -81,15 +81,15 @@ def create_script(
         handle (BytesIO): The output stream handle.
         num_bytes (int): Number of bytes written
     """
-    print(encoding)
+    print(f"encoding: {encoding}")
     if not use_chamber and not use_bed:
         raise Exception("Must enable either bed or chamber.")
 
     num_bytes = 0
 
     def write(*lines, newline=newline):
-        text = newline.join([e for e in lines if e is not None]).encode("utf-8")
-        text += newline.encode("utf-8")
+        text = newline.join([e for e in lines if e is not None]).encode(encoding)
+        text += newline.encode(encoding)
         handle.write(text)
         return len(text)
 
@@ -373,7 +373,7 @@ def main():
     print("  Chamber: %r" % args.chamber)
     print("  EvoStartEnd: %r" % args.includeEvoStartEnd)
 
-    create_file(args.filename, args.time, args.temperature, args.bed, args.chamber, args.includeEvoStartEnd)
+    create_file(args.filename, args.time, args.temperature, bed=args.bed, chamber=args.chamber, evo=args.includeEvoStartEnd)
 
     print("Done.")
 
