@@ -6,7 +6,6 @@ include = '''
         filament_dryer_script_generator
       | tests
       | .github
-      | evoCode
     )/.*\.pyi?$
 )|(
     setup\.py
