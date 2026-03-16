@@ -373,7 +373,7 @@ def main():
     print("  Chamber: %r" % args.chamber)
     print("  EvoStartEnd: %r" % args.includeEvoStartEnd)
 
-    create_file(args.filename, args.time, args.temperature, bed=args.bed, chamber=args.chamber, evo=args.includeEvoStartEnd)
+    create_file(args.filename, args.time, args.temperature, use_bed=args.bed, use_chamber=args.chamber, evo=args.includeEvoStartEnd)
 
     print("Done.")
 
